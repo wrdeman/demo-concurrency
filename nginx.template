@@ -1,0 +1,9 @@
+server {
+    location / {
+        proxy_pass http://web:8001;
+    }   
+ 
+    location /static/ {
+        root /code/;
+    }
+}
