@@ -1,0 +1,15 @@
+version: '3'
+services:
+  db:
+    image: postgres
+
+  web:
+    build: .
+    command: gunicorn app:app -b 0.0.0.0:8000 --name app --log-level=debug --log-file=-
+    depends_on:
+      - db
+    ports:
+     - "8000:8000"
+    volumes:
+     - .:/code
+
