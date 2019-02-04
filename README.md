@@ -1,7 +1,13 @@
-# Django and docker-compose template
+# Django app for demonstrating effects of concurrency.
 
-Really basic django/docker-compose project template
+A small and very basic Django application.
 
-`docker-compose run web django-admin startproject demo .`
+## Start
+`docker-compose run web django-admin migrate`
+`docker-compose run web django-admin loaddate demo/data/initial.json`
+`docker-compose exec web python manage.py collectstatic`
+`docker-compose up`
 
-`docker-compose run web django-admin startapp`
+# Multiple concurrent requests
+To create 100 requests with concurrency=3:
+`uname=admin pward=testpassword ./splatter.sh`

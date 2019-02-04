@@ -5,11 +5,11 @@ services:
 
   web:
     build: .
-    command: gunicorn app:app -b 0.0.0.0:8000 --name app --log-level=debug --log-file=-
+    command: gunicorn demo.wsgi:application -w9 -b "0.0.0.0:8001" --name app --log-level=debug --log-file=-
+    # command: python manage.py runserver 0.0.0.0:8001
     depends_on:
       - db
     ports:
-     - "8000:8000"
+     - "8001:8001"
     volumes:
      - .:/code
-
