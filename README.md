@@ -4,8 +4,11 @@ A small and very basic Django application.
 
 ## Start
 `docker-compose run web django-admin migrate`
+
 `docker-compose run web django-admin loaddate demo/data/initial.json`
+
 `docker-compose exec web python manage.py collectstatic`
+
 `docker-compose up`
 
 # Multiple concurrent requests
